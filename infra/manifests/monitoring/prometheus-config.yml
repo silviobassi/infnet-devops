@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: prometheus-config
-  namespace: infnet-monitoring  # Substitua pelo namespace desejado
+  namespace: infnet-monitoring
   labels:
     app: prometheus
 data:
