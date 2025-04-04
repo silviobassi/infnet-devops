@@ -76,8 +76,12 @@ jobs:
 
       - name: Criar tag no repositório
         run: |
-          git tag $IMAGE_VERSION
-          git push origin $IMAGE_VERSION
+          if git ls-remote --tags origin | grep -q "refs/tags/$IMAGE_VERSION"; then
+            echo "Tag $IMAGE_VERSION já existe. Pulando criação."
+          else
+            git tag $IMAGE_VERSION
+            git push origin $IMAGE_VERSION
+          fi
 
       - name: Login no Docker Hub
         uses: docker/login-action@v2
