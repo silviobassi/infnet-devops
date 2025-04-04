@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'infra/**'
+      - 'README.md'
   workflow_dispatch:  # Agora não pede VERSION_BUMP
 
 permissions:

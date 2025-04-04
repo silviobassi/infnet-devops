@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-course-deploy
+  namespace: infnet-app
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: app-course
+  template:
+    metadata:
+      labels:
+        app: app-course
+    spec:
+      containers:
+        - name: app-course
+          image: silviobassi/app-course
+          env:
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: datasource-url
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: mysql-user
+
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: mysql-password
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: 15m
+              memory: 428M
+            limits:
+              cpu: 512m
+              memory: 1G
+          livenessProbe:
+            httpGet:
+              path: "/health"
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: "/health"
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 5
