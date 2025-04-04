@@ -1,0 +1,8 @@
+@startuml
+enum TipoEspecializacao {
+    MBA
+    POS_GRADUACAO
+    EXTENSAO
+    LIVRE
+}
+@enduml

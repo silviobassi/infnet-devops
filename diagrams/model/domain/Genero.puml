@@ -1,0 +1,6 @@
+@startuml
+enum Genero {
+  MASCULINO
+  FEMININO
+}
+@enduml

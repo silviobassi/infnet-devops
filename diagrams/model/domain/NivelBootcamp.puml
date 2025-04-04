@@ -1,0 +1,7 @@
+@startuml
+enum NivelBootcamp {
+    BASICO
+    INTERMEDIARIO
+    AVANCADO
+}
+@enduml

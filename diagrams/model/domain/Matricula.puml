@@ -1,0 +1,7 @@
+@startuml
+class Matricula {
+  - numeroDaMatricula : long
+  - dataDaCompra : LocalDateTime
+  - ativa : boolean
+}
+@enduml

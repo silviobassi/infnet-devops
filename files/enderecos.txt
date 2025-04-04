@@ -1,0 +1,10 @@
+E;Rua D;454;Apto 4;Bairro D;Cidade D;Estado D;15707334;1
+E;Rua A;123;Apto 1;Bairro A;Cidade A;Estado A;74574001;2
+E;Rua D;454;Apto 4;Bairro D;Cidade D;Estado D;15070500;3
+E;Rua E;455;Apto 5;Bairro E;Cidade D;Estado D;65633-794;4
+E;Rua A;123;Apto 1;Bairro A;Cidade A;Estado A;74574001;5
+E;Rua C;456;Apto 3;Bairro C;Cidade C;Estado C;77814291;6
+E;Rua B;456;Apto 2;Bairro B;Cidade B;Estado B;77090014;7
+E;Rua C;456;Apto 3;Bairro C;Cidade C;Estado C;68905460;8
+E;Rua C;456;Apto 3;Bairro C;Cidade C;Estado C;08560570;9
+E;Rua C;456;Apto 3;Bairro C;Cidade C;Estado C;15803177;10

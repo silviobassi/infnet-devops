@@ -1,0 +1,31 @@
+@startuml
+!include Pessoa.puml
+!include Aluno.puml
+!include Bootcamp.puml
+!include Contato.puml
+!include Curso.puml
+!include Especialista.puml
+!include Genero.puml
+!include Instrutor.puml
+!include Matricula.puml
+!include Endereco.puml
+!include TipoEspecializacao.puml
+!include NivelBootcamp.puml
+
+Pessoa "1" --> "1 -contato" Contato
+Pessoa "1" --> "1 -endereco" Endereco
+Pessoa  --> "1 -genero" Genero
+
+Aluno --|> Pessoa
+Instrutor --|> Pessoa
+
+Bootcamp --|> Curso
+Bootcamp --> "1 -nivelBootcamp" NivelBootcamp
+
+Especialista --|> Curso
+Especialista --> "1 -tipoEspecializacao" TipoEspecializacao
+
+Curso "1..*" --> "0..* -instrutores" Instrutor
+Matricula "0..*" -->"1 -curso" Curso
+Matricula "1..*" -->"1 -aluno" Aluno
+@enduml

@@ -1,0 +1,6 @@
+EP;Engenharia de Software;Pós-graduação em Engenharia de Software .NET;6650.0;60;Conhecimento básico em .NET;true;true;MBA;true
+EP;Arquitetura de Software;Curso avançado de Arquitetura de Software;8660.0;44;Experiência em desenvolvimento;true;true;POS_GRADUACAO;false
+EP;Arquitetura de Soluções;Curso avançado de Arquitetura de Soluções;9750.0;120;Experiência em desenvolvimento;true;true;POS_GRADUACAO;false
+BC;Curso de .NET;Curso avançado de .NET;800.0;100;Conhecimento em .NET;true;true;Imergir no mundo .NET;INTERMEDIARIO
+BC;Curso de React;Curso avançado de React;760.0;60;Conhecimento em React;true;true;Imergir no mundo React;BASICO
+BC;Curso de Next;Curso avançado de Next;360.0;230;Conhecimento em Next;true;true;Imergir no mundo React;BASICO

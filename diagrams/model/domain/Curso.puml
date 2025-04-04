@@ -1,0 +1,11 @@
+@startuml
+abstract class Curso {
+    - titulo : String
+    - descricao : String
+    - valor : float
+    - cargaHoraria : int
+    - preRequisitos : String
+    - estagioObrigatorio : boolean
+    - ativo : boolean
+}
+@enduml

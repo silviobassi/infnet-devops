@@ -1,0 +1,6 @@
+@startuml
+class Instrutor {
+    formacao : String
+    especialidade : String
+}
+@enduml

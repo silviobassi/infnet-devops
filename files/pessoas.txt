@@ -1,0 +1,20 @@
+CT;email4@example.com;987654321
+A;João Silva;1990-01-01T00:00:00;MASCULINO;true;false
+CT;email5@example.com;987654321
+A;Maria Oliveira;1985-05-15T00:00:00;FEMININO;false;true
+CT;email5@example.com;987654321
+A;Fernando Vasconcelos;1985-05-15T00:00:00;MASCULINO;true;true
+CT;email6@example.com;987654321
+I;João Silva;1990-01-01T00:00:00;MASCULINO;Formacao5;Especialidade5;2;2
+CT;email1@example.com;123456789
+I;Maria Oliveira;1985-05-15T00:00:00;FEMININO;Formacao5;Especialidade5;4;4
+CT;email2@example.com;123456789
+I;Jorge Santos;1985-05-15T00:00:00;FEMININO;Formacao3;Especialidade3;7;7
+CT;email3@example.com;123456789
+I;Carlos Pereira;1992-07-20T00:00:00;MASCULINO;Formacao2;Especialidade2;8;8
+CT;email4@example.com;123456789
+I;Washington da Silva;1992-07-20T00:00:00;MASCULINO;Formacao4;Especialidade4;9;9
+CT;email4@example.com;123456789
+I;Fernando Costa;1983-07-20T00:00:00;MASCULINO;Formacao6;Especialidade6;10;10
+CT;email4@example.com;123456789
+I;Márcio da Silva;1989-07-20T00:00:00;MASCULINO;Formacao7;Especialidade47;10;10

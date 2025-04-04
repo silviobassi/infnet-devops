@@ -1,0 +1,4 @@
+prometheus:
+  configMaps:
+    prometheus.yml:
+      name: prometheus-config  # O nome do ConfigMap
