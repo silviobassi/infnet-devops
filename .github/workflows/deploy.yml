@@ -7,49 +7,49 @@ on:
     paths:
       - 'infra/**'
       - 'README.md'
-  workflow_dispatch:  # Agora não pede VERSION_BUMP
+  workflow_dispatch:  # Now it doesn't require VERSION_BUMP
 
 permissions:
-  contents: write  # Permissão para criar tags se necessário
+  contents: write  # Permission to create tags if needed
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código 🛠️
+      - name: Checkout source code 🛠️
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Configurando JDK 21 ⚙️
+      - name: Set up JDK 21 ⚙️
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Building da aplicação com Maven 🚀
+      - name: Build application with Maven 🚀
         run: ./mvnw clean package -DskipTests
 
-      - name: Gerar versão com hash curta do commit 🧩
+      - name: Generate version using short commit hash 🧩
         run: |
           VERSION=${GITHUB_SHA::7}
           echo "IMAGE_VERSION=$VERSION"
           echo "IMAGE_VERSION=$VERSION" >> $GITHUB_ENV
 
-      - name: Login no Docker Hub 🔑
+      - name: Login to Docker Hub 🔑
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Build da imagem Docker 🚀
+      - name: Build Docker image 🚀
         run: docker build -t silviobassi/app-course:${{ env.IMAGE_VERSION }} .
 
-      - name: Push da imagem para o Docker Hub 📤
+      - name: Push image to Docker Hub 📤
         run: docker push silviobassi/app-course:${{ env.IMAGE_VERSION }}
 
-      - name: Atualizar tag latest (opcional) 🏷️
+      - name: Update latest tag (optional) 🏷️
         run: |
           docker tag silviobassi/app-course:${{ env.IMAGE_VERSION }} silviobassi/app-course:latest
           docker push silviobassi/app-course:latest
