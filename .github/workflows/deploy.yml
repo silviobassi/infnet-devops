@@ -4,15 +4,10 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
-    inputs:
-      VERSION_BUMP:
-        description: "Escolha o incremento da versão (patch, minor, major)"
-        required: true
-        default: "patch"
+  workflow_dispatch:  # Agora não pede VERSION_BUMP
 
 permissions:
-  contents: write  # Permissão para criar tags no repositório
+  contents: write  # Permissão para criar tags se necessário
 
 jobs:
   build:
@@ -33,55 +28,11 @@ jobs:
       - name: Building da aplicação com Maven 🚀
         run: ./mvnw clean package -DskipTests
 
-      - name: Obtendo a última versão da imagem 🏷️
+      - name: Gerar versão com hash curta do commit 🧩
         run: |
-          LATEST_VERSION=$(git tag --sort=-v:refname | head -n 1)
-          
-          if [[ -z "$LATEST_VERSION" ]]; then
-            NEW_VERSION="1.0.0"
-          else
-            MAJOR=$(echo $LATEST_VERSION | cut -d. -f1)
-            MINOR=$(echo $LATEST_VERSION | cut -d. -f2)
-            PATCH=$(echo $LATEST_VERSION | cut -d. -f3)
-          
-            case "${{ github.event.inputs.VERSION_BUMP }}" in
-              "major")
-                MAJOR=$((MAJOR + 1))
-                MINOR=0
-                PATCH=0
-                ;;
-              "minor")
-                MINOR=$((MINOR + 1))
-                PATCH=0
-                ;;
-              "patch")
-                PATCH=$((PATCH + 1))
-                ;;
-              *)
-                echo "Opção inválida para VERSION_BUMP, usando patch por padrão"
-                PATCH=$((PATCH + 1))
-                ;;
-            esac
-
-            NEW_VERSION="$MAJOR.$MINOR.$PATCH"
-          fi
-
-          echo "IMAGE_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-
-      - name: Configurando credenciais do Git ⚙️
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-
-      - name: Criar tag no repositório 🏷️
-        run: |
-          if git ls-remote --tags origin | grep -q "refs/tags/$IMAGE_VERSION"; then
-            echo "Tag $IMAGE_VERSION já existe. Pulando criação."
-          else
-            git tag $IMAGE_VERSION
-            git push origin $IMAGE_VERSION
-          fi
+          VERSION=${GITHUB_SHA::7}
+          echo "IMAGE_VERSION=$VERSION"
+          echo "IMAGE_VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Login no Docker Hub 🔑
         uses: docker/login-action@v2
@@ -89,14 +40,13 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Building a imagem Docker  🚀
+      - name: Build da imagem Docker 🚀
         run: docker build -t silviobassi/app-course:${{ env.IMAGE_VERSION }} .
 
-      - name: Pushing da imagem para o Docker Hub 📤
+      - name: Push da imagem para o Docker Hub 📤
         run: docker push silviobassi/app-course:${{ env.IMAGE_VERSION }}
 
       - name: Atualizar tag latest (opcional) 🏷️
         run: |
-          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/app-course:${{ env.IMAGE_VERSION }} ${{ secrets.DOCKER_HUB_USERNAME }}/app-course:latest
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/app-course:latest
-      
+          docker tag silviobassi/app-course:${{ env.IMAGE_VERSION }} silviobassi/app-course:latest
+          docker push silviobassi/app-course:latest
