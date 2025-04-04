@@ -4,13 +4,15 @@ on:
   push:
     branches:
       - main
-
   workflow_dispatch:
     inputs:
       VERSION_BUMP:
         description: "Escolha o incremento da versão (patch, minor, major)"
         required: true
         default: "patch"
+
+permissions:
+  contents: write  # Dá permissão para criar tags no repositório
 
 jobs:
   build:
@@ -65,6 +67,12 @@ jobs:
           fi
 
           echo "IMAGE_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+
+      - name: Configurar credenciais do Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
       - name: Criar tag no repositório
         run: |
