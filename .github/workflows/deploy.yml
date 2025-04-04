@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - main
-    paths:
+    paths-ignore:
       - 'infra/**'
+      - 'diagrams/**'
+      - 'PostmanEndpoints/**'
+      - 'devops-validate/**'
       - 'README.md'
   workflow_dispatch:  # Now it doesn't require VERSION_BUMP
-
-permissions:
-  contents: write  # Permission to create tags if needed
 
 jobs:
   build:
