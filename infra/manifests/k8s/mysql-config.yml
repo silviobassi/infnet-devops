@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+  namespace: infnet-app
+data:
+  mysql-database: "silviobassi"
+  datasource-url: "jdbc:mysql://mysql-svc:3306/silviobassi"
+  mysql-root-password: "cm9vdA=="
+  mysql-user: "c2lsdmlv"
+  mysql-password: "bXlzcWwxMjM="
