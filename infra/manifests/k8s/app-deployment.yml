@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-course-deploy
+  name: app-deploy
   namespace: infnet-app
 spec:
   replicas: 4

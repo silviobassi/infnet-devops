@@ -1,4 +1,5 @@
 @startuml
 class Aluno {
 }
+
 @enduml
