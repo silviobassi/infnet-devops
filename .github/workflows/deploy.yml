@@ -4,12 +4,8 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'infra/**'
-      - 'diagrams/**'
-      - 'PostmanEndpoints/**'
-      - 'devops-validate/**'
-      - 'README.md'
+    paths:
+      - 'src/**'
   workflow_dispatch:  # Now it doesn't require VERSION_BUMP
 
 jobs:
