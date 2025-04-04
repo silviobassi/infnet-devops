@@ -95,7 +95,8 @@ jobs:
       - name: Pushing da imagem para o Docker Hub 📤
         run: docker push silviobassi/app-course:${{ env.IMAGE_VERSION }}
 
-      - name: Atualizar tag latest (opcional)
+      - name: Atualizar tag latest (opcional) 🏷️
         run: |
-          docker tag silviobassi/app-course:${{ env.IMAGE_VERSION }} silviobassi/app-course:latest
-          docker push silviobassi/app-course:latest 🏷️
+          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/app-course:${{ env.IMAGE_VERSION }} ${{ secrets.DOCKER_HUB_USERNAME }}/app-course:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/app-course:latest
+      
