@@ -12,7 +12,7 @@ on:
         default: "patch"
 
 permissions:
-  contents: write  # Dá permissão para criar tags no repositório
+  contents: write  # Permissão para criar tags no repositório
 
 jobs:
   build:
