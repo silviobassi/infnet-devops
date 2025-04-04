@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'src/**'
+      - '.github/**'
   workflow_dispatch:  # Now it doesn't require VERSION_BUMP
 
 jobs:
