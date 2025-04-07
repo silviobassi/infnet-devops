@@ -46,14 +46,11 @@ Acesso ao repositório em:
 
 #### Execução do Projeto
 
-##### 1. Instalação do Minikube:
+##### 1. Instalação do Docker, Kubectl e Minikube (Se não tiver instalados):
 
-Observação: **⚠️ Tenha o Docker e o Kubectl instalados na sua máquina. ⚠️**
-
-```bash
-curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
-```
+- [Instalação do Docker](https://docs.docker.com/engine/install/)
+- [Instalação do Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+- [Instalação do Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download)
 
 ##### 2. Execução do deploy do projeto:
 
@@ -73,3 +70,6 @@ kubectl apply -f .
 cd infra/manifests/monitoring
 sh monitoring_install.sh
 ```
+
+##### 3. Demonstração do projeto em execução:
+
