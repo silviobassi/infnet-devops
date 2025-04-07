@@ -7,8 +7,7 @@ on:
     paths:
       - 'src/**'
       - '.github/**'
-      - 'infra/**'
-      - 'README.md'
+
   workflow_dispatch:  # Now it doesn't require VERSION_BUMP
 
 jobs:
