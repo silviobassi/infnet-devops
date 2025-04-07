@@ -7,7 +7,8 @@ on:
     paths:
       - 'src/**'
       - '.github/**'
-      #- 'infra/**'
+      - 'infra/**'
+      - 'README.md'
   workflow_dispatch:  # Now it doesn't require VERSION_BUMP
 
 jobs:
@@ -15,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source code 🛠️
+      - name: Checkout source code 🔄
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -56,7 +57,7 @@ jobs:
       - name: Push image to Docker Hub 📤
         run: docker push silviobassi/app-course:${{ env.IMAGE_VERSION }}
 
-      - name: Update latest tag (optional) 🏷️
+      - name: Update latest tag (optional) 🔄🏷️
         run: |
           docker tag silviobassi/app-course:${{ env.IMAGE_VERSION }} silviobassi/app-course:latest
           docker push silviobassi/app-course:latest
