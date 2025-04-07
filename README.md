@@ -78,11 +78,26 @@ sh monitoring_install.sh
 
 ### 3.1. Pipeline de CI/CD com GitHub Actions em Execução:
 
+Pipeline de geração de imagem da aplicação
+
 ![Pipeline](devops-validate/workflow_pipeline_in_action.png)
 
 ### 3.2. Aplicação em Execução:
 
+Deployment aplicado e exibição de pods, services e url para acesso a API da aplicação
+
 ![App](devops-validate/app_in_execution_terminal.png)
+
+Swagger para acesso a API da aplicação
 
 ![App](devops-validate/app_in_execution_browser.png)
 
+### 3.3. Monitoramento em Execução:
+
+Deployment aplicado
+
+![Grafana](devops-validate/applied_deploy_monitoring.png)
+
+Exibição de pods, services e pvc do monitoramento
+
+![Grafana](devops-validate/monitoring_pod_svc_pvc_in_action.png)
