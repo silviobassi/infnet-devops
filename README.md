@@ -48,14 +48,16 @@ Acesso ao repositório em:
 
 ##### 1. Instalação do Minikube:
 
-Observação: Tenha o Docker e o Kubectl instalados na sua máquina.
+Observação: **⚠️ Tenha o Docker e o Kubectl instalados na sua máquina. ⚠️**
 
 ```bash
 curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 ```
 
-##### 2. Esteja no diretório do projeto:
+##### 2. Execução do deploy do projeto:
+
+Observação: **⚠️ Esteja no diretório do projeto! ⚠️**
 
 ###### 2.1. Execute o deploy da aplicação (App e MySQL:
 
