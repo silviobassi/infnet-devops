@@ -46,7 +46,7 @@ Acesso ao repositório em:
 
 ## 2. Execução do Projeto
 
-### 2.1. Instalação do Docker, Kubectl e Minikube (Se não tiver instalados):
+### 2.1. Instalação do Docker, Kubectl e Minikube (Se não estiverem instalados):
 
 - [Instalação do Docker](https://docs.docker.com/engine/install/)
 - [Instalação do Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
@@ -78,7 +78,7 @@ sh monitoring_install.sh
 
 ### 3.1. Pipeline de CI/CD com GitHub Actions em Execução:
 
-Pipeline de geração de imagem da aplicação
+Pipeline de geração da imagem da aplicação
 
 ![Pipeline](devops-validate/workflow_pipeline_in_action.png)
 
