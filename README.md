@@ -1,27 +1,11 @@
-# Projeto do Curso de Arquitetura de Software
+# Projeto do Curso de Pós-graduação - MIT Arquitetura de Software
 
 ## Disciplina: Integração Contínua, DevOps e Computação em Nuvem [25E1_3]
 
+Este projeto, implementa uma aplicação com CI/CD via GitHub Actions, utilizando Docker e Kubernetes (Minikube). O ambiente inclui uma aplicação com múltiplas réplicas, banco de dados MySQL, e monitoramento completo com Prometheus e Grafana. A infraestrutura conta com readiness/liveness probes, serviços LoadBalancer e persistência de dados com PVC. O projeto também realiza testes de estresse com Fortio e disponibiliza os dashboards para análise de métricas como uso de CPU e memória.
+
 Acesso ao repositório em:
 [https://github.com/silviobassi/infnet-devops](https://github.com/silviobassi/infnet-devops.git)
-
-
-### Passos para Implementação e Execução do Projeto:
-
-1. [x] A imagem foi publicada no Docker Hub por meio de pipeline de CI/CD com GitHub Actions
-2. [x] Deploy local utilizando cluster Kubernetes - Minikube
-3. [x] Deployment da aplicação com 4 réplicas
-4. [x] A aplicação foi exposta para fora do cluster com service do tipo (LoadBalancer)
-5. [x] Criação de probes (Readiness e Liveness) para garantir a saúde da aplicação
-6. [x] Deployment de um banco de dados (MySql) com 1 réplica
-7. [x] O banco de dados ficou acessível com service do tipo (ClusterIP)
-8. [x] Deploy para monitoramento da aplicação com Grafana e Prometheus
-9. [x] O Grafana foi exposto para fora do cluster com service do tipo (LoadBalancer)
-10. [x] O Grafana foi configurado para coletar métricas do Prometheus
-11. [x] O Prometheus ficou acessível com service do tipo (ClusterIP)
-12. [x] Um PVC foi utilizado para escrever os dados do Prometheus de forma persistente
-13. [x] Dashboards do Grafana para exposição de dados sensíveis (memória, cpu, ...)
-14. [x] Stress Test da aplicação com Fortio
 
 ## 1. Código Fonte e Configurações do Projeto
 
