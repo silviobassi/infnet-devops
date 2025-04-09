@@ -89,7 +89,7 @@ sh monitoring_install.sh
 
 ![Grafana](devops-validate/monitoring_pod_svc_pvc_in_action.png)
 
-- O Prometheus só está exposto internamente _(ClusterIP)_, o acesso foi feito via port-forwarding
+- O Prometheus só está exposto internamente _(ClusterIP)_, o acesso foi feito via _port-forward_
 
 ![Prometheus](devops-validate/prometheus_port_forward_terminal.png)
 
@@ -107,13 +107,13 @@ sh monitoring_install.sh
 
 ![Grafana](devops-validate/test_in_progress_terminal.png)
 
-![Grafana](devops-validate/test_result_terminal_1.png)
-
 - Resultado final
+
+![Grafana](devops-validate/test_result_terminal_1.png)
 
 ![Grafana](devops-validate/test_result_terminal_2.png)
 
-### 3.4. Dashboards do Grafana Expondo Dados Sensíveis da Aplicação dos _POD(s)_ - Sofrendo Alterações
+### 3.4. Dashboards do Grafana Expondo Dados Sensíveis dos _POD(s)_ da Aplicação  - _Sofrendo Alterações..._
 
 - Consumo de memória para todos os _POD(s)_ - início
 
@@ -127,18 +127,18 @@ sh monitoring_install.sh
 
 ![Grafana](devops-validate/pod_down_and_up.png)
 
-- Consumo de CPU em um _POD_ do MySQL
+- Consumo de CPU do _POD_ com MySQL
 
 ![Grafana](devops-validate/dashboard_cpu_pod_mysql.png)
 
-- Consumo de CPU em um _POD_ da aplicação
+- Consumo de CPU em um _POD_ com a aplicação
 
 ![Grafana](devops-validate/dashboard_cpu_pod_app.png)
 
 - Consumo de CPU pata todos os pods - sofrendo as últimas alterações
 
-![Grafana](devops-validate/dashboard_cpu_end_changing.png)
+![Grafana](devops-validate/dashboard_memory_end_changing.png)
 
 - Consumo de memória para todos os pods - sofrendo as últimas alterações
 
-![Grafana](devops-validate/dashboard_memory_end_changing.png)
+![Grafana](devops-validate/dashboard_cpu_end_changing.png)
