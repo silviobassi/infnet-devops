@@ -29,7 +29,7 @@ Acesso ao repositório em:
 
 ### 1.4. Testes de Estresse - Acesse em 👇
 
-- [stress-test/test_k6js](https://github.com/silviobassi/infnet-devops/tree/main/stress-test/test_k6.js)
+- [stress-test/test_k6js](https://github.com/silviobassi/infnet-devops/blob/main/stress-test/test_k6.js)
 
 ## 2. Execução do Projeto
 
