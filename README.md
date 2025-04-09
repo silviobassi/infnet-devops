@@ -226,22 +226,27 @@ _Observação:_ ⚠️Teste executado entre as **22h33 e 22h45 do dia 08/04/2025
 
 ![Grafana](devops-validate/dashboard_memory_end_changing.png)
 
-**Conclusão**
+## Conclusão
 
 ✅ Pontos Fortes
 
-- Nenhuma falha HTTP detectada (100% de status 200).
-- Estrutura do teste bem planejada com carga escalonada.
-- Execução estável mesmo com até 1000 VUs simultâneos.
+- Nenhuma falha HTTP detectada (100% das respostas com status 200).
+- Estrutura de CI/CD bem definida com GitHub Actions e automação via Minikube.
+- Monitoramento completo com Prometheus e Grafana em funcionamento.
+- Execução estável da aplicação com até 1000 usuários simultâneos.
 
 ⚠️ Pontos Fracos
-- Apenas 7% das respostas foram abaixo de 500ms.
-- Latência média alta (~4.5s), com picos de até 15.9s.
-- Performance da API degradada sob alta carga.
 
-🛠️ Recomendações
-- Otimizar consultas no backend e banco de dados.
-- Avaliar escalabilidade horizontal da aplicação.
-- Avaliar recursos do cluster Kubernetes (CPU, memória...).
-- Implementar cache em pontos estratégicos (API, banco).
-- Monitorar com APM para identificar gargalos sob carga.
+- Apenas 7% das requisições foram concluídas abaixo de 500ms.
+- Latência média elevada (~4.5s), com picos de até 15.9s.
+- Consumo elevado de CPU e memória nos pods da aplicação e do MySQL.
+- Reinicializações excessivas dos pods durante o teste de estresse.
+
+🛠️ Recomendações para Melhoria
+
+- Otimizar o backend e as consultas ao banco de dados.
+- Implementar cache estratégico para dados mais acessados.
+- Avaliar e ajustar os limites de CPU e memória dos nodes no Kubernetes.
+- Ativar o autoescalonamento horizontal (HPA) baseado em métricas de uso.
+- Revisar as configurações de readiness/liveness probes para evitar reinícios desnecessários.
+- Verificar se o cluster possui nós suficientes para suportar a carga simulada.
