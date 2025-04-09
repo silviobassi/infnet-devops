@@ -67,57 +67,57 @@ sh monitoring_install.sh
 
 - Pipeline de geração da imagem da aplicação
 
-![Pipeline](devops-validate/workflow_pipeline_in_action.png)
+![Pipeline](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/workflow_pipeline_in_action.png?raw=tr)
 
 - Imagem publicada no Docker Hub após a execução do pipeline
 
-![DockerHub](devops-validate/image_in_dockerhub.png)
+![DockerHub](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/image_in_dockerhub.png?raw=true)
 
 ### 3.2. Aplicação em Execução:
 
 - Deployment aplicado e exibição de pods, services e url para acesso a API da aplicação
 
-![App](devops-validate/app_in_execution_terminal.png)
+![App](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/app_in_execution_terminal.png?raw=true)
 
 - Swagger para acesso a API da aplicação
 
-![App](devops-validate/app_in_execution_browser.png)
+![App](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/app_in_execution_browser.png?raw=true)
 
 ### 3.3. Estrutura de Monitoramento da  Aplicação com o Prometheus e o Grafana:
 
 - Deployment aplicado
 
-![Grafana](devops-validate/applied_deploy_monitoring.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/applied_deploy_monitoring.png?raw=true)
 
 - Exibição de pods, services e pvc do monitoramento
 
-![Grafana](devops-validate/monitoring_pod_svc_pvc_in_action.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/monitoring_pod_svc_pvc_in_action.png?raw=true)
 
 - O Prometheus só está exposto internamente _(ClusterIP)_, o acesso foi feito via _port-forward_
 
-![Prometheus](devops-validate/prometheus_port_forward_terminal.png)
+![Prometheus](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/prometheus_port_forward_terminal.png?raw=true)
 
 - Exibição do Prometheus em Execução
 
-![Prometheus](devops-validate/prometheus_in_action.png)
+![Prometheus](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/prometheus_in_action.png?raw=true)
 
 - Grafana conectado ao prometheus
 
-![Grafana](devops-validate/grafana_connected_to_prometheus.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/grafana_connected_to_prometheus.png?raw=true)
 
 ### 3.4. Execução de _Stress Test_ com o k6
 
 - Teste em progresso
 
-![Grafana](devops-validate/test_in_progress_terminal.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/test_in_progress_terminal.png?raw=true)
 
 - Resultado final
 
-![Grafana](devops-validate/test_result_terminal.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/test_result_terminal.png?raw=true)
 
 - Houve _down_ ou _up_ para todos os pods, na progressão do teste. Os _POD(s)_ foram reiniciados em até 16 vezes, como se observa na figura abaixo:
 
-![test](devops-validate/status_pods.png)
+![test](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/status_pods.png?raw=true)
 
 ### 3.5. Resumo Geral do Teste
 
@@ -198,35 +198,35 @@ sh monitoring_install.sh
 
 - Consumo de memória para todos os _POD(s)_ - início
 
-![Grafana](devops-validate/dashboard_memory_init.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/dashboard_memory_init.png?raw=true)
 
 - Consumo de cpu para todos os _POD(s)_ - início
 
-![Grafana](devops-validate/dashboard_cpu_init.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/dashboard_cpu_init.png?raw=true)
 
 - Consumo de CPU do _POD_ com MySQL
 
-![Grafana](devops-validate/dashboard_cpu_pod_mysql.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/dashboard_cpu_pod_mysql.png?raw=true)
 
 - Consumo de memória do _POD_ com MySQL
 
-![Grafana](devops-validate/dashboard_memory_pod_mysql.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/dashboard_memory_pod_mysql.png?raw=true)
 
 - Consumo de CPU em um _POD_ com a aplicação
 
-![Grafana](devops-validate/dashboard_cpu_pod_app.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/dashboard_cpu_pod_app.png?raw=true)
 
 - Consumo de memória em um _POD_ com a aplicação
 
-![Grafana](devops-validate/dashboard_memory_pod_app.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/dashboard_memory_pod_app.png?raw=true)
 
 - Consumo de CPU pata todos os pods - sofrendo as últimas alterações
 
-![Grafana](devops-validate/dashboard_cpu_end_changing.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/dashboard_cpu_end_changing.png?raw=true)
 
 - Consumo de memória para todos os pods - sofrendo as últimas alterações
 
-![Grafana](devops-validate/dashboard_memory_end_changing.png)
+![Grafana](https://github.com/silviobassi/infnet-devops/blob/main/devops-validate/dashboard_memory_end_changing.png?raw=true)
 
 ## Conclusão
 
