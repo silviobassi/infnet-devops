@@ -27,6 +27,9 @@ Acesso ao repositório em:
 - [infra/manifests/monitoring/prometheus-config.yml](https://github.com/silviobassi/infnet-devops/tree/main/infra/manifests/monitoring/prometheus-config.yml)<br>
 - [infra/manifests/monitoring/values.yml](https://github.com/silviobassi/infnet-devops/tree/main/infra/manifests/monitoring/values.yml)<br>
 
+### 1.4. Testes de Estresse - Acesse em 👇
+
+- [stress-test/test_k6js](https://github.com/silviobassi/infnet-devops/tree/main/stress-test/test_k6.js)
 
 ## 2. Execução do Projeto
 
@@ -76,12 +79,67 @@ Swagger para acesso a API da aplicação
 
 ![App](devops-validate/app_in_execution_browser.png)
 
-### 3.3. Monitoramento em Execução:
+### 3.3. Estrutura de Monitoramento da  Aplicação com o Prometheus e o Grafana:
 
-Deployment aplicado
+#### 3.3.1. Deployment aplicado
 
 ![Grafana](devops-validate/applied_deploy_monitoring.png)
 
-Exibição de pods, services e pvc do monitoramento
+#### 3.3.2. Exibição de pods, services e pvc do monitoramento
 
 ![Grafana](devops-validate/monitoring_pod_svc_pvc_in_action.png)
+
+#### 3.3.3. Exibição do Prometheus em Execução
+
+**Observação**: Como o Prometheus só está exposto internamente _(ClusterIP)_, o acesso foi feito via port-forwarding
+
+![Prometheus](devops-validate/prometheus_port_forward_terminal.png)
+
+![Prometheus](devops-validate/prometheus_in_action.png)
+
+#### 3.3.4. Exibição do Grafana em Execução
+
+- Grafana conectado ao prometheus
+
+![Grafana](devops-validate/grafana_connected_to_prometheus.png)
+
+#### 3.3.5. Execução de _Stress Test_ com o k6
+
+Ver cenário de teste em: [./stress_test/test_k8.js](https://github.com/silviobassi/infnet-devops/tree/main/stress-test/test_k8.js)
+
+![Grafana](devops-validate/test_in_progress_terminal.png)
+
+![Grafana](devops-validate/test_result_terminal_1.png)
+
+![Grafana](devops-validate/test_result_terminal_2.png)
+
+#### 3.3.6. Dashboards do Grafana Expondo Dados Sensíveis da Aplicação dos _POD(s)_ - Sofrendo Alterações
+
+- Consumo de memória para todos os _POD(s)_ - início
+
+![Grafana](devops-validate/dashboard_memory_init.png)
+
+- Consumo de cpu para todos os _POD(s)_ - início
+
+![Grafana](devops-validate/dashboard_cpu_init.png)
+
+- Consumo de memória - _POD_(s) em Down e Up 
+
+![Grafana](devops-validate/pod_down_and_up.png)
+
+- Consumo de CPU em um _POD_ do MySQL
+
+![Grafana](devops-validate/dashboard_cpu_pod_mysql.png)
+
+- Consumo de CPU em um _POD_ da aplicação
+
+![Grafana](devops-validate/dashboard_cpu_pod_app.png)
+
+- Consumo de CPU pata todos os pods - sofrendo as últimas alterações
+
+![Grafana](devops-validate/dashboard_cpu_end_changing.png)
+
+- Consumo de memória para todos os pods - sofrendo as últimas alterações
+
+![Grafana](devops-validate/dashboard_memory_end_changing.png)
+
