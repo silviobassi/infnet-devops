@@ -69,6 +69,10 @@ sh monitoring_install.sh
 
 ![Pipeline](devops-validate/workflow_pipeline_in_action.png)
 
+- Imagem publicada no Docker Hub após a execução do pipeline
+
+![DockerHub](devops-validate/image_in_dockerhub.png)
+
 ### 3.2. Aplicação em Execução:
 
 - Deployment aplicado e exibição de pods, services e url para acesso a API da aplicação
