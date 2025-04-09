@@ -2,7 +2,7 @@
 
 ## Disciplina: Integração Contínua, DevOps e Computação em Nuvem [25E1_3]
 
-Este projeto, implementa uma aplicação com CI/CD via GitHub Actions, utilizando Docker e Kubernetes (Minikube). O ambiente inclui uma aplicação com múltiplas réplicas, banco de dados MySQL, e monitoramento completo com Prometheus e Grafana. A infraestrutura conta com readiness/liveness probes, serviços LoadBalancer e persistência de dados com PVC. O projeto também realiza testes de estresse com Fortio e disponibiliza os dashboards para análise de métricas como uso de CPU e memória.
+Este projeto, implementa uma aplicação com CI/CD via GitHub Actions, utilizando Docker e Kubernetes (Minikube). O ambiente inclui uma aplicação com múltiplas réplicas, banco de dados MySQL, e monitoramento completo com Prometheus e Grafana. A infraestrutura conta com readiness/liveness probes, serviços LoadBalancer e persistência de dados com PVC. O projeto também realiza testes de estresse com k6 e disponibiliza os dashboards para análise de métricas como uso de CPU e memória.
 
 Acesso ao repositório em:
 [https://github.com/silviobassi/infnet-devops](https://github.com/silviobassi/infnet-devops.git)
