@@ -103,6 +103,8 @@ sh monitoring_install.sh
 
 ### 3.4. Execução de _Stress Test_ com o k6
 
+_Observação:_ ⚠️Teste executado entre as **22h33 e 22h45 do dia 08/04/2025**
+
 - Teste em progresso
 
 ![Grafana](devops-validate/test_in_progress_terminal.png)
