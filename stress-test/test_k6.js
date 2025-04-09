@@ -1,24 +1,58 @@
 import http from 'k6/http';
-import { check, sleep } from 'k6';
+import {check} from 'k6';
 
 export let options = {
-    stages: [
-        { duration: '2m', target: 100 },   // Sobe para 100 usuários em 2 minutos
-        { duration: '3m', target: 500 },   // Sobe até 500 usuários em 3 minutos
-        { duration: '2m', target: 1000 },  // Sobe até 1000 usuários no pico em 2 minutos
-        { duration: '2m', target: 500 },   // Reduz para 500 usuários em 2 minutos
-        { duration: '2m', target: 100 },   // Reduz para 100 usuários em 2 minutos
-        { duration: '1m', target: 0 },     // Finaliza reduzindo até 0
-    ],
+    scenarios: {
+        fase1: {
+            executor: 'per-vu-iterations',
+            vus: 100,
+            iterations: 2,
+            startTime: '0s',
+            maxDuration: '2m',
+        },
+        fase2: {
+            executor: 'per-vu-iterations',
+            vus: 500,
+            iterations: 2,
+            startTime: '2m',
+            maxDuration: '3m',
+        },
+        fase3: {
+            executor: 'per-vu-iterations',
+            vus: 1000,
+            iterations: 2,
+            startTime: '5m',
+            maxDuration: '2m',
+        },
+        fase4: {
+            executor: 'per-vu-iterations',
+            vus: 500,
+            iterations: 2,
+            startTime: '7m',
+            maxDuration: '2m',
+        },
+        fase5: {
+            executor: 'per-vu-iterations',
+            vus: 100,
+            iterations: 2,
+            startTime: '9m',
+            maxDuration: '2m',
+        },
+        faseFinal: {
+            executor: 'per-vu-iterations',
+            vus: 1,
+            iterations: 2,
+            startTime: '11m',
+            maxDuration: '1m',
+        },
+    },
 };
 
 export default function () {
-    let res = http.get('http://127.0.0.1:39507/especializacoes/listar');
+    let res = http.get('http://127.0.0.1:32797/matriculas/2/buscar');
 
     check(res, {
         'status é 200': (r) => r.status === 200,
         'tempo < 500ms': (r) => r.timings.duration < 500,
     });
-
-    sleep(1); // espera 1s entre as requisições
 }

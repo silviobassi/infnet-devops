@@ -111,9 +111,86 @@ _Observação:_ ⚠️Teste executado entre as **22h33 e 22h45 do dia 08/04/2025
 
 - Resultado final
 
-![Grafana](devops-validate/test_result_terminal_1.png)
+![Grafana](devops-validate/test_result_terminal.png)
 
-![Grafana](devops-validate/test_result_terminal_2.png)
+- Houve _down_ ou _up_ para todos os pods, na progressão do teste. Os _POD(s)_ foram reiniciados em até 16 vezes, como se observa na figura abaixo:
+
+![test](devops-validate/status_pods.png)
+
+### 3.5. Resumo Geral do Teste
+
+- Execução local
+- Script: [stress-test/test_k6js](https://github.com/silviobassi/infnet-devops/blob/main/stress-test/test_k6.js)
+- Cenários (scenarios): 6 fases diferentes, com até 1500 VUs ativos ao longo do tempo.
+- Duração total: 12m30s, incluindo gracefulStop (tempo de tolerância para finalizar VUs ativos).
+- Total de requisições HTTP: 4402
+- Total de checagens (check) realizadas: 8804 (duas por requisição, provavelmente)
+
+#### 3.5.1. Configuração das Fases do Teste
+
+| Fase  | VUs (Usuários Virtuais) | Iterações por VU | Início | Duração Máxima (minutos) |
+|-------|-------------------------|------------------|--------|--------------------------|
+| 1     | 100                     | 2                | 0s     | 2m                       |
+| 2     | 500                     | 2                | 2m     | 3m                       |
+| 3     | 1000                    | 2                | 5m     | 2m                       |
+| 4     | 500                     | 2                | 7m     | 2m                       |
+| 5     | 100                     | 2                | 9m     | 2m                       |
+| Final | 1                       | 2                | 11m    | 1m                       |
+
+- _Observação_: ⚠️ A fase final é apenas simbólica — não contribui de forma significativa a carga
+
+#### 3.5.2. Checks (Validações do Teste)
+
+| Check         | Sucesso | Falha  | Observações                                              |
+|---------------|---------|--------|----------------------------------------------------------|
+| status é 200  | ✅ 4731  | ❌ 0    | Bom! Todas as respostas vieram com status 200.           |
+| tempo < 500ms | ✅ 329   | ❌ 4073 | 😬 Apenas 7% das requisições foram rápidas o suficiente. |
+
+#### 3.5.3. Desempenho HTTP
+
+| Métrica        | Valor   |
+|----------------|---------|
+| Média          | 4.48s   |
+| Mediana (p50)  | 3.88s   |
+| p90            | 8.44s   |
+| p95            | 10.18s  |
+| Máximo         | 15.9s   |
+| Mínimo         | 6.27ms  |
+
+
+#### 3.5.4. Execução de Iterações e VUs
+
+| Métrica               | Valor     |
+|-----------------------|-----------|
+| Total de Iterações    | 4402      |
+| Iterações por segundo | 6.87/s    |
+| Duração média         | 4.59s     |
+| Mediana (p50)         | 3.98s     |
+| p90                   | 8.96s     |
+| p95                   | 10.31s    |
+| Duração máxima        | 15.97s    |
+| Duração mínima        | 6.41ms    |
+| VUs em uso (mín-máx)  | 0 - 1000  |
+| VUs máximos definidos | 1500      |
+
+#### 3.5.5. Métricas de Rede
+
+| Métrica          | Valor     |
+|------------------|-----------|
+| Dados recebidos  | 1.7 MB    |
+| Taxa de download | ~2.7 kB/s |
+| Dados enviados   | 453 KB    |
+| Taxa de upload   | ~708 B/s  |
+
+#### 3.5.6. Resumo Final de Execução
+
+| Métrica                   | Valor        |
+|---------------------------|--------------|
+| Duração total da execução | 10m40.3s     |
+| VUs ativos (mín-máx)      | 0 - 1000     |
+| VUs máximos configurados  | 1500         |
+| Total de requisições HTTP | 4402         |
+| Falhas HTTP               | 0 (0.00%)    |
 
 ### 3.4. Dashboards do Grafana Expondo Dados Sensíveis dos _POD(s)_ da Aplicação  - _Sofrendo Alterações durante o _Stress Test_..._
 
@@ -125,22 +202,46 @@ _Observação:_ ⚠️Teste executado entre as **22h33 e 22h45 do dia 08/04/2025
 
 ![Grafana](devops-validate/dashboard_cpu_init.png)
 
-- Consumo de memória - _POD_(s) em Down e Up 
-
-![Grafana](devops-validate/pod_down_and_up.png)
-
 - Consumo de CPU do _POD_ com MySQL
 
 ![Grafana](devops-validate/dashboard_cpu_pod_mysql.png)
+
+- Consumo de memória do _POD_ com MySQL
+
+![Grafana](devops-validate/dashboard_memory_pod_mysql.png)
 
 - Consumo de CPU em um _POD_ com a aplicação
 
 ![Grafana](devops-validate/dashboard_cpu_pod_app.png)
 
+- Consumo de memória em um _POD_ com a aplicação
+
+![Grafana](devops-validate/dashboard_memory_pod_app.png)
+
 - Consumo de CPU pata todos os pods - sofrendo as últimas alterações
 
-![Grafana](devops-validate/dashboard_memory_end_changing.png)
+![Grafana](devops-validate/dashboard_cpu_end_changing.png)
 
 - Consumo de memória para todos os pods - sofrendo as últimas alterações
 
-![Grafana](devops-validate/dashboard_cpu_end_changing.png)
+![Grafana](devops-validate/dashboard_memory_end_changing.png)
+
+**Conclusão**
+
+✅ Pontos Fortes
+
+- Nenhuma falha HTTP detectada (100% de status 200).
+- Estrutura do teste bem planejada com carga escalonada.
+- Execução estável mesmo com até 1000 VUs simultâneos.
+
+⚠️ Pontos Fracos
+- Apenas 7% das respostas foram abaixo de 500ms.
+- Latência média alta (~4.5s), com picos de até 15.9s.
+- Performance da API degradada sob alta carga.
+
+🛠️ Recomendações
+- Otimizar consultas no backend e banco de dados.
+- Avaliar escalabilidade horizontal da aplicação.
+- Avaliar recursos do cluster Kubernetes (CPU, memória...).
+- Implementar cache em pontos estratégicos (API, banco).
+- Monitorar com APM para identificar gargalos sob carga.
