@@ -65,53 +65,55 @@ sh monitoring_install.sh
 
 ### 3.1. Pipeline de CI/CD com GitHub Actions em Execução:
 
-Pipeline de geração da imagem da aplicação
+- Pipeline de geração da imagem da aplicação
 
 ![Pipeline](devops-validate/workflow_pipeline_in_action.png)
 
 ### 3.2. Aplicação em Execução:
 
-Deployment aplicado e exibição de pods, services e url para acesso a API da aplicação
+- Deployment aplicado e exibição de pods, services e url para acesso a API da aplicação
 
 ![App](devops-validate/app_in_execution_terminal.png)
 
-Swagger para acesso a API da aplicação
+- Swagger para acesso a API da aplicação
 
 ![App](devops-validate/app_in_execution_browser.png)
 
 ### 3.3. Estrutura de Monitoramento da  Aplicação com o Prometheus e o Grafana:
 
-#### 3.3.1. Deployment aplicado
+- Deployment aplicado
 
 ![Grafana](devops-validate/applied_deploy_monitoring.png)
 
-#### 3.3.2. Exibição de pods, services e pvc do monitoramento
+- Exibição de pods, services e pvc do monitoramento
 
 ![Grafana](devops-validate/monitoring_pod_svc_pvc_in_action.png)
 
-#### 3.3.3. Exibição do Prometheus em Execução
-
-**Observação**: Como o Prometheus só está exposto internamente _(ClusterIP)_, o acesso foi feito via port-forwarding
+- O Prometheus só está exposto internamente _(ClusterIP)_, o acesso foi feito via port-forwarding
 
 ![Prometheus](devops-validate/prometheus_port_forward_terminal.png)
 
-![Prometheus](devops-validate/prometheus_in_action.png)
+- Exibição do Prometheus em Execução
 
-#### 3.3.4. Exibição do Grafana em Execução
+![Prometheus](devops-validate/prometheus_in_action.png)
 
 - Grafana conectado ao prometheus
 
 ![Grafana](devops-validate/grafana_connected_to_prometheus.png)
 
-#### 3.3.5. Execução de _Stress Test_ com o k6
+### 3.4. Execução de _Stress Test_ com o k6
+
+- Teste em progresso
 
 ![Grafana](devops-validate/test_in_progress_terminal.png)
 
 ![Grafana](devops-validate/test_result_terminal_1.png)
 
+- Resultado final
+
 ![Grafana](devops-validate/test_result_terminal_2.png)
 
-#### 3.3.6. Dashboards do Grafana Expondo Dados Sensíveis da Aplicação dos _POD(s)_ - Sofrendo Alterações
+### 3.4. Dashboards do Grafana Expondo Dados Sensíveis da Aplicação dos _POD(s)_ - Sofrendo Alterações
 
 - Consumo de memória para todos os _POD(s)_ - início
 
@@ -140,4 +142,3 @@ Swagger para acesso a API da aplicação
 - Consumo de memória para todos os pods - sofrendo as últimas alterações
 
 ![Grafana](devops-validate/dashboard_memory_end_changing.png)
-
