@@ -2,7 +2,7 @@
 
 ## Disciplina: Integração Contínua, DevOps e Computação em Nuvem [25E1_3]
 
-Este projeto, implementa uma aplicação com CI/CD via GitHub Actions, utilizando Docker e Kubernetes (Minikube). O ambiente inclui uma aplicação com múltiplas réplicas, banco de dados MySQL, e monitoramento completo com Prometheus e Grafana. A infraestrutura conta com readiness/liveness probes, serviços LoadBalancer e persistência de dados com PVC. O projeto também realiza testes de estresse com Fortio e disponibiliza os dashboards para análise de métricas como uso de CPU e memória.
+Este projeto, implementa uma aplicação com CI/CD via GitHub Actions, utilizando Docker e Kubernetes (Minikube). O ambiente inclui uma aplicação com múltiplas réplicas, banco de dados MySQL, e monitoramento completo com Prometheus e Grafana. A infraestrutura conta com readiness/liveness probes, serviços LoadBalancer e persistência de dados com PVC. O projeto também realiza testes de estresse com k6 e disponibiliza os dashboards para análise de métricas como uso de CPU e memória.
 
 Acesso ao repositório em:
 [https://github.com/silviobassi/infnet-devops](https://github.com/silviobassi/infnet-devops.git)
@@ -115,7 +115,7 @@ _Observação:_ ⚠️Teste executado entre as **22h33 e 22h45 do dia 08/04/2025
 
 ![Grafana](devops-validate/test_result_terminal_2.png)
 
-### 3.4. Dashboards do Grafana Expondo Dados Sensíveis dos _POD(s)_ da Aplicação  - _Sofrendo Alterações..._
+### 3.4. Dashboards do Grafana Expondo Dados Sensíveis dos _POD(s)_ da Aplicação  - _Sofrendo Alterações durante o _Stress Test_..._
 
 - Consumo de memória para todos os _POD(s)_ - início
 
