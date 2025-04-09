@@ -190,7 +190,7 @@ sh monitoring_install.sh
 | Total de requisições HTTP | 4402         |
 | Falhas HTTP               | 0 (0.00%)    |
 
-### 3.4. Dashboards do Grafana Expondo Dados Sensíveis dos _POD(s)_ da Aplicação  - _Sofrendo Alterações durante o _Stress Test_..._
+### 3.6. Dashboards do Grafana Expondo Dados Sensíveis dos _POD(s)_ da Aplicação  - _Sofrendo Alterações durante o _Stress Test_..._
 
 - Consumo de memória para todos os _POD(s)_ - início
 
