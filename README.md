@@ -105,8 +105,6 @@ Swagger para acesso a API da aplicação
 
 #### 3.3.5. Execução de _Stress Test_ com o k6
 
-Ver cenário de teste em: [./stress_test/test_k8.js](https://github.com/silviobassi/infnet-devops/tree/main/stress-test/test_k8.js)
-
 ![Grafana](devops-validate/test_in_progress_terminal.png)
 
 ![Grafana](devops-validate/test_result_terminal_1.png)
