@@ -7,7 +7,7 @@ Este projeto, implementa uma aplicação com CI/CD via GitHub Actions, utilizand
 Acesso ao repositório em:
 [https://github.com/silviobassi/infnet-devops](https://github.com/silviobassi/infnet-devops.git)
 
-## 1. Código Fonte e Configurações do Projeto
+## 1. Código Fonte com Configurações do Projeto
 
 ### 1.1. Pipeline de CI/CD com GitHub Actions - Acesse em 👇
 
